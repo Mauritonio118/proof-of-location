@@ -405,7 +405,25 @@ export default function AppPage() {
                   </span>
                 </div>
                 {proofStatus.txHash && (
-                  <p className="text-green-400 text-sm mt-2 font-mono">Transaction: {proofStatus.txHash}</p>
+                  <div className="mt-3 space-y-2">
+                    <p className="text-green-400 text-sm font-mono">Transaction: {proofStatus.txHash}</p>
+                    <a
+                      href={`http://130.60.24.234:4000/tx/${proofStatus.txHash}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center space-x-2 bg-green-600/20 hover:bg-green-600/30 border border-green-400/30 hover:border-green-400/50 rounded-lg px-4 py-2 text-green-300 hover:text-green-200 transition-all duration-200 text-sm font-medium"
+                    >
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                        />
+                      </svg>
+                      <span>Verificar en Block Explorer</span>
+                    </a>
+                  </div>
                 )}
               </CardContent>
             </Card>
