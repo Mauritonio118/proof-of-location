@@ -1,66 +1,12 @@
 "use client"
 
-import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { MapPin, Shield, Zap, Network, Cpu, Globe, Wallet, ChevronRight, Check, ArrowRight } from "lucide-react"
+import { MapPin, Shield, Zap, Network, Cpu, Globe, ChevronRight, Check, ArrowRight } from "lucide-react"
 import Link from "next/link"
 
-declare global {
-  interface Window {
-    ethereum?: any
-  }
-}
-
 export default function ProofOfLocationLanding() {
-  const [walletAddress, setWalletAddress] = useState<string>("")
-  const [isConnecting, setIsConnecting] = useState(false)
-
-  const connectWallet = async () => {
-    if (typeof window.ethereum !== "undefined") {
-      setIsConnecting(true)
-      try {
-        const accounts = await window.ethereum.request({
-          method: "eth_requestAccounts",
-        })
-        setWalletAddress(accounts[0])
-      } catch (error) {
-        console.error("Error connecting wallet:", error)
-      } finally {
-        setIsConnecting(false)
-      }
-    } else {
-      alert("Please install MetaMask or another Ethereum wallet")
-    }
-  }
-
-  const disconnectWallet = () => {
-    setWalletAddress("")
-  }
-
-  useEffect(() => {
-    const checkConnection = async () => {
-      if (typeof window.ethereum !== "undefined") {
-        try {
-          const accounts = await window.ethereum.request({
-            method: "eth_accounts",
-          })
-          if (accounts.length > 0) {
-            setWalletAddress(accounts[0])
-          }
-        } catch (error) {
-          console.error("Error checking wallet connection:", error)
-        }
-      }
-    }
-    checkConnection()
-  }, [])
-
-  const formatAddress = (address: string) => {
-    return `${address.slice(0, 6)}...${address.slice(-4)}`
-  }
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
       {/* Header */}
@@ -82,25 +28,9 @@ export default function ProofOfLocationLanding() {
             </Link>
           </nav>
           <div>
-            {walletAddress ? (
-              <Button
-                onClick={disconnectWallet}
-                variant="outline"
-                className="border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-white bg-transparent"
-              >
-                <Wallet className="w-4 h-4 mr-2" />
-                {formatAddress(walletAddress)}
-              </Button>
-            ) : (
-              <Button
-                onClick={connectWallet}
-                disabled={isConnecting}
-                className="bg-purple-600 hover:bg-purple-700 text-white"
-              >
-                <Wallet className="w-4 h-4 mr-2" />
-                {isConnecting ? "Connecting..." : "Connect Wallet"}
-              </Button>
-            )}
+            <Link href="/app">
+              <Button className="bg-purple-600 hover:bg-purple-700 text-white">APP</Button>
+            </Link>
           </div>
         </div>
       </header>
@@ -439,31 +369,11 @@ export default function ProofOfLocationLanding() {
             of Location.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            {walletAddress ? (
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white px-8 py-3">
-                  <Check className="mr-2 h-4 w-4" />
-                  Wallet Connected
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-white/20 text-white hover:bg-white/10 px-8 py-3 bg-transparent"
-                >
-                  Explore Dashboard
-                </Button>
-              </div>
-            ) : (
-              <Button
-                size="lg"
-                onClick={connectWallet}
-                disabled={isConnecting}
-                className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3"
-              >
-                <Wallet className="mr-2 h-4 w-4" />
-                {isConnecting ? "Connecting..." : "Connect Wallet to Start"}
+            <Link href="/app">
+              <Button size="lg" className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3">
+                Launch APP
               </Button>
-            )}
+            </Link>
           </div>
         </div>
       </section>
