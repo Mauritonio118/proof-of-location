@@ -29,7 +29,7 @@ export default function ProofOfLocationLanding() {
           </nav>
           <div>
             <Link href="/app">
-              <Button className="bg-purple-600 hover:bg-purple-700 text-white">APP</Button>
+              <Button className="bg-purple-600 hover:bg-purple-700 text-white">DApp</Button>
             </Link>
           </div>
         </div>
@@ -50,16 +50,20 @@ export default function ProofOfLocationLanding() {
             location inputs for smart contracts across multiple blockchain networks.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3">
-              Get Started <ChevronRight className="ml-2 h-4 w-4" />
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-white/20 text-white hover:bg-white/10 px-8 py-3 bg-transparent"
-            >
-              View Documentation
-            </Button>
+            <Link href="/app">
+              <Button size="lg" className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3">
+                Get Started <ChevronRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
+            <Link href="/docs">
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-white/20 text-white hover:bg-white/10 px-8 py-3 bg-transparent"
+              >
+                View Documentation
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -119,47 +123,51 @@ export default function ProofOfLocationLanding() {
             </p>
           </div>
 
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-6xl mx-auto">
             <div className="relative">
-              {/* Flow Steps */}
-              <div className="grid md:grid-cols-4 gap-8 relative">
+              {/* Flow Steps - Fixed to ensure horizontal alignment */}
+              <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-4">
                 {/* Step 1 */}
-                <div className="text-center">
+                <div className="flex-1 text-center">
                   <div className="bg-purple-600 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                     <Cpu className="h-8 w-8 text-white" />
                   </div>
                   <h3 className="text-lg font-semibold text-white mb-2">Hardware Seed</h3>
-                  <p className="text-gray-300 text-sm">
+                  <p className="text-gray-300 text-sm max-w-xs mx-auto">
                     Specific hardware + software generates cryptographic seed phrase
                   </p>
                 </div>
 
                 {/* Arrow */}
-                <div className="hidden md:flex items-center justify-center">
+                <div className="hidden lg:flex items-center justify-center px-4">
                   <ArrowRight className="h-6 w-6 text-purple-400" />
                 </div>
 
                 {/* Step 2 */}
-                <div className="text-center">
+                <div className="flex-1 text-center">
                   <div className="bg-purple-600 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                     <Shield className="h-8 w-8 text-white" />
                   </div>
                   <h3 className="text-lg font-semibold text-white mb-2">Crypto Proofs</h3>
-                  <p className="text-gray-300 text-sm">Hardware creates location proofs and sends to ICP network</p>
+                  <p className="text-gray-300 text-sm max-w-xs mx-auto">
+                    Hardware creates location proofs and sends to ICP network
+                  </p>
                 </div>
 
                 {/* Arrow */}
-                <div className="hidden md:flex items-center justify-center">
+                <div className="hidden lg:flex items-center justify-center px-4">
                   <ArrowRight className="h-6 w-6 text-purple-400" />
                 </div>
 
                 {/* Step 3 */}
-                <div className="text-center">
+                <div className="flex-1 text-center">
                   <div className="bg-purple-600 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                     <Globe className="h-8 w-8 text-white" />
                   </div>
                   <h3 className="text-lg font-semibold text-white mb-2">Multi-Chain</h3>
-                  <p className="text-gray-300 text-sm">ICP processes and distributes to Ethereum, Cardano, Polkadot</p>
+                  <p className="text-gray-300 text-sm max-w-xs mx-auto">
+                    ICP processes and distributes to Ethereum, Cardano, Polkadot
+                  </p>
                 </div>
               </div>
 
@@ -371,7 +379,7 @@ export default function ProofOfLocationLanding() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/app">
               <Button size="lg" className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3">
-                Launch APP
+                Launch DApp
               </Button>
             </Link>
           </div>
@@ -381,75 +389,18 @@ export default function ProofOfLocationLanding() {
       {/* Footer */}
       <footer className="py-12 px-4 border-t border-white/10 bg-black/40">
         <div className="container mx-auto">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div>
-              <div className="flex items-center space-x-2 mb-4">
-                <MapPin className="h-6 w-6 text-purple-400" />
-                <span className="text-lg font-bold text-white">Proof of Location</span>
-              </div>
-              <p className="text-gray-400 text-sm">
-                Revolutionizing blockchain with cryptographic location verification.
-              </p>
+          <div className="flex flex-col md:flex-row items-center justify-between">
+            <div className="flex items-center space-x-2 mb-4 md:mb-0">
+              <MapPin className="h-6 w-6 text-purple-400" />
+              <span className="text-lg font-bold text-white">Proof of Location</span>
             </div>
-            <div>
-              <h3 className="text-white font-semibold mb-4">Product</h3>
-              <ul className="space-y-2 text-gray-400 text-sm">
-                <li>
-                  <Link href="#" className="hover:text-white transition-colors">
-                    Documentation
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-white transition-colors">
-                    API Reference
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-white transition-colors">
-                    SDK
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-white font-semibold mb-4">Resources</h3>
-              <ul className="space-y-2 text-gray-400 text-sm">
-                <li>
-                  <Link href="#" className="hover:text-white transition-colors">
-                    Whitepaper
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-white transition-colors">
-                    Blog
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-white transition-colors">
-                    Community
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-white font-semibold mb-4">Company</h3>
-              <ul className="space-y-2 text-gray-400 text-sm">
-                <li>
-                  <Link href="#" className="hover:text-white transition-colors">
-                    About
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-white transition-colors">
-                    Contact
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-white transition-colors">
-                    Privacy
-                  </Link>
-                </li>
-              </ul>
+            <div className="flex items-center space-x-6">
+              <Link href="/docs" className="text-gray-400 hover:text-white transition-colors">
+                Documentation
+              </Link>
+              <Link href="/app" className="text-gray-400 hover:text-white transition-colors">
+                DApp
+              </Link>
             </div>
           </div>
           <div className="border-t border-white/10 mt-8 pt-8 text-center">
